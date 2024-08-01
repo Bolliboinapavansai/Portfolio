@@ -14,7 +14,7 @@ def lottie_file(filepath):
 selected = option_menu(
     menu_title="",
     options= ["Home","Projects","Publications", "Blogs" ],
-    icons= ["Home","book","Follow me"],
+    icons= ["house", "briefcase", "book", "file-text"],
     default_index=0,
     orientation="horizontal"
 ) 
@@ -48,9 +48,9 @@ if selected=='Home':
         with leftcolumn:
             st.header('Professional Experience')
             st.markdown("""<h2><span style="color: #C0C0C0;">Company : </span><span style ="color:#007DC5;">TATA CONSULTANCY SERVICES</span></h2> """, unsafe_allow_html=True)
-            st.markdown(''' <h6> <em>August 2020 - september 2022</em></h6>''',unsafe_allow_html=True)
+            st.markdown(''' <h6> <em>August 2020 - September 2022</em></h6>''',unsafe_allow_html=True)
             st.markdown("""<h3><span style="color: #C0C0C0;">Client :</span> 
-                        <span style="color: #0000A0;">Mars Inc.</span></h3>""",unsafe_allow_html=True)
+                        <span style="color: #94ffeb;">Mars Inc.</span></h3>""",unsafe_allow_html=True)
     
             st.markdown(
                 '''  
