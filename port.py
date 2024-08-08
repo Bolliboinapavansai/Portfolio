@@ -120,7 +120,7 @@ if selected == 'Publications':
                 ''', unsafe_allow_html=True)
         st.write("---")
         st.markdown(''' 
-            <h4><span style="color: white;">PAPAER TITLE: </span><span style ="color:#FFFF00;"><em>Performance Comparision of Private AI Chatbot and Public AI Chatbot</em></span></h4> 
+            <h4><span style="color: white;">PAPER TITLE: </span><span style ="color:#FFFF00;"><em>Performance Comparision of Private AI Chatbot and Public AI Chatbot</em></span></h4> 
             ''', unsafe_allow_html=True)
         st.write("#")
         text_column,image_column  = st.columns((2,1))
