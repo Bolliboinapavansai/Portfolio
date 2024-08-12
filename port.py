@@ -19,6 +19,8 @@ selected = option_menu(
     orientation="horizontal"
 ) 
 lottie_filepath= os.path.join('static', 'lottie.json')
+ln_filepath=os.path.join('static','ln.json')
+
 
 lottie_json= lottie_file(lottie_filepath)
 buddymate= Image.open('images/buddymate.jpg')
@@ -26,6 +28,7 @@ ats=Image.open('images/ats.jpg')
 worlds4= Image.open('images/worlds4.jpg')
 cert=Image.open('images/cert.jpg')
 medium = Image.open('images/medium.jpg')
+ln=lottie_file(ln_filepath)
 
 
 
@@ -183,35 +186,39 @@ if selected == 'Blogs':
                         </style><a href="https://pavansaibolliboina.medium.com/" target="_blank" class="button">Follow</a>""",unsafe_allow_html=True
                         )
         st.write('---')
-        st.header("Social Media -Linkedin")
-        st.write("""
-    🌟 **Attention LinkedIn Professionals!** 🌟
+        leftcolumn,rightcolum=st.columns(2)
+        with leftcolumn:
+            st.header("Social Media -Linkedin")
+            st.write("""
+        🌟 **Attention LinkedIn Professionals!** 🌟
 
-    If you are passionate about technology and interested in connecting with industry peers, let's connect on LinkedIn. I am committed to sharing valuable insights and fostering professional relationships.
+        If you are passionate about technology and interested in connecting with industry peers, let's connect on LinkedIn. I am committed to sharing valuable insights and fostering professional relationships.
 
-    Click the **Connect** button to join me in this professional network. I look forward to engaging with you and exploring opportunities for collaboration.
+        Click the **Connect** button to join me in this professional network. I look forward to engaging with you and exploring opportunities for collaboration.
 
-    See you on LinkedIn! 💼✨
-""")
-        st.markdown(f"""<style>.button {{
-                            padding: 10px 20px;
-                            background-color: #f0f0f0; /* Neutral button background color */
-                            border: 2px solid #f0f0f0;
-                            border-radius: 10px;
-                            color: #39ff14;
-                            font-size: 16px;
-                            font-weight: bold;
-                            cursor: pointer;
-                            text-align: center;
-                            text-decoration: none;
-                            display: inline-block;
-                        }}.button:hover {{
-                            background-color: #ADD8E6;
-                            text-decoration: none;
-                                }}
-                        </style><a href="https://www.linkedin.com/in/bolliboinapavansai/" target="_blank" class="button">Connect</a>""",unsafe_allow_html=True
-                        )
-        
+        See you on LinkedIn! 💼✨
+    """)
+            st.markdown(f"""<style>.button {{
+                                padding: 10px 20px;
+                                background-color: #f0f0f0; /* Neutral button background color */
+                                border: 2px solid #f0f0f0;
+                                border-radius: 10px;
+                                color: #39ff14;
+                                font-size: 16px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                text-align: center;
+                                text-decoration: none;
+                                display: inline-block;
+                            }}.button:hover {{
+                                background-color: #ADD8E6;
+                                text-decoration: none;
+                                    }}
+                            </style><a href="https://www.linkedin.com/in/bolliboinapavansai/" target="_blank" class="button">Connect</a>""",unsafe_allow_html=True
+                            )
+        with rightcolum:
+            st_lottie(ln, speed=1, width=800, height=400, key="ln_animation")
+            
 
 
 
