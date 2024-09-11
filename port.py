@@ -8,7 +8,7 @@ from streamlit_option_menu import option_menu
 st.set_page_config(page_title="My portfolio", page_icon=':tada:', layout='wide')
 
 def lottie_file(filepath):
-    with open(filepath, 'r') as file:
+    with open(filepath, 'r',encoding='utf-8') as file:
         return json.load(file)
     
 selected = option_menu(
@@ -20,16 +20,18 @@ selected = option_menu(
 ) 
 lottie_filepath= os.path.join('static', 'lottie.json')
 ln_filepath=os.path.join('static','ln.json')
+research_filepath= os.path.join('static','research.json')
 
 
 lottie_json= lottie_file(lottie_filepath)
+resarch_json= lottie_file(research_filepath)
+ln=lottie_file(ln_filepath)
 buddymate= Image.open('images/buddymate.jpg')
 ats=Image.open('images/ats.jpg')
 worlds4= Image.open('images/worlds4.jpg')
 cert=Image.open('images/cert.jpg')
 medium = Image.open('images/medium.jpg')
-ln=lottie_file(ln_filepath)
-
+RAG=Image.open('images/rag.jpg')
 
 
 if selected=='Home':
@@ -50,11 +52,10 @@ if selected=='Home':
         leftcolumn, rightcolum = st.columns(2)
         with leftcolumn:
             st.header('Professional Experience')
-            st.markdown("""<h2><span style="color: #C0C0C0;">Company : </span><span style ="color:#007DC5;">TATA CONSULTANCY SERVICES</span></h2> """, unsafe_allow_html=True)
+            st.markdown("""<h2><span style ="color:#007DC5;">TATA CONSULTANCY SERVICES</span></h2> """, unsafe_allow_html=True)
             st.markdown(''' <h6> <em>August 2020 - September 2022</em></h6>''',unsafe_allow_html=True)
             st.markdown("""<h3><span style="color: #C0C0C0;">Client :</span> 
                         <span style="color: #94ffeb;">Mars Inc.</span></h3>""",unsafe_allow_html=True)
-    
             st.markdown(
                 '''  
                 - Collaborated with Mars Incorporated to establish and maintain Dynamics 365 infrastructure in Azure cloud, leveraging Azure fundamentals.
@@ -64,12 +65,60 @@ if selected=='Home':
                 - Implemented agile and DevOps methodologies, significantly enhancing project development efficiency and reducing deployment times through Continuous integration and continuous Delivery (CI/CD) pipelines.
                 - Worked with various teams to troubleshoot incidents, issues,  identify root causes, and implement preventive measures, fostering a collaborative DevOps culture.'''
             )
+            st.markdown("""<h2><span style ="color:#d1190d;">MONTCLAIR STATE UNIVERSITY</span></h2> """, unsafe_allow_html=True)
+            st.markdown(''' <h6> <em>october 2022 - May 2024</em></h6>''',unsafe_allow_html=True)
+            st.markdown("""<h3><span style="color: #94ffeb;">Research Assistant</span></h3>""",unsafe_allow_html=True)
+    
+        
         with rightcolum:
             st_lottie(lottie_json, speed=1, width=800, height=400, key="lottie_animation")
+
+          
+    with st.container():
+        leftcolumn, rightcolum = st.columns(2)
+        with leftcolumn:
+            st.markdown(
+                '''  
+                - Developed a Retrieval-Augmented Generation (RAG) chatbot utilizing Llama2 and Sentence Transformers for efficient document querying and retrieval.
+                - Utilized FAISS for vector storage, ensuring accurate retrieval of document embeddings and improving query response times.
+                -  Designed a robust backend using Python and Flask, facilitating seamless integration with document processing logic.
+                -  Conducted research on the performance comparison of OpenAI API and private API of chatbots, presented at the WORLDS4 conference in London, UK.
+                - Developed an ATS compatibility tool that parses PDF resumes and compares them against job descriptions using Streamlit and Python.
+                - Integrated Google’s generative AI to evaluate resumes, providing detailed suggestions to enhance match rates with targeted job roles.
+                - Implemented features for identifying critical keywords for ATS optimization, guiding users on effective incorporation into their resumes.
+                - Created an automated resume rewriting option, improving users' chances of landing interviews by ensuring alignment with job description criteria.
+                - Developed a task management web application using Django and Python for efficient team collaboration.
+                - Utilized PostgreSQL as the primary database for reliable and scalable task data management.
+                - Implemented user authentication and role-based access control, ensuring secure access to application features.
+                - Designed an intuitive user interface using Django templates and Bootstrap for a seamless user experience.
+                - Deployed the application on a cloud platform, demonstrating skills in maintaining web applications in production environments.
+                '''
+                )
+            with rightcolum:
+                st_lottie(resarch_json, speed=1, width=800, height=400, key="research_animation")
 
 if selected=='Projects':
     with st.container():
         st.header("My Projects")
+        st.write('---') 
+        image_column, text_column = st.columns((1,2))
+        with image_column:
+            st.image(RAG, width=300)
+        with text_column:
+            st.header("Project name : Docuquery-RAG-Bot")
+            st.subheader("Overview")
+            st.write("""Docuquery-RAG-Bot is a powerful tool designed to provide answers to user queries by 
+                     leveraging state-of-the-art language models and vector databases. """)
+            st.markdown(
+                """
+                <a href="https://github.com/Bolliboinapavansai/Docuquery-RAG-Bot" target="_blank">
+                    <button style="padding:10px 20px; background-color: #007bff; border: none; border-radius: 5px;font-size:16px; cursor:pointer;">Click Here To Know More</button>
+                </a>
+                """,
+                unsafe_allow_html=True)
+            
+    with st.container():
+        
         st.write('---')
 
         image_column, text_column = st.columns((1,2))
@@ -110,6 +159,8 @@ if selected=='Projects':
                 </a>
                 """,
                 unsafe_allow_html=True)
+            
+    
             
 if selected == 'Publications':
     with st.container():
@@ -214,7 +265,7 @@ if selected == 'Blogs':
                                 background-color: #ADD8E6;
                                 text-decoration: none;
                                     }}
-                            </style><a href="https://www.linkedin.com/in/bolliboinapavansai/" target="_blank" class="button">Connect</a>""",unsafe_allow_html=True
+                            </style><a href="https://www.linkedin.com/in/bolliboinapavansai/" target="_blank" class="button">Follow</a>""",unsafe_allow_html=True
                             )
         with rightcolum:
             st_lottie(ln, speed=1, width=800, height=400, key="ln_animation")
